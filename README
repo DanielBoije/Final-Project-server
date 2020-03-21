@@ -1,1 +1,10 @@
-.env:n täytyy käydä lisäämässä passu ja käyttäjä
+-.env:n täytyy käydä lisäämässä passu ja käyttäjä
+
+-databasen ja host:n (aws) nimen lisäys postgreSQL tiedostoihin
+
+-toteumaan pitää tehä JOINIT + pitää viel viilata
+
+-täytyy tarkentaa virheilmoja
+
+-.ebextensions luotu valmiiksi aws varten (elastic b aws)
+-aws ympäristön luonti eb:n 

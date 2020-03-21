@@ -6,7 +6,10 @@ var logger = require('morgan');
 var cors = require('cors');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var tuotteetRouter = require('./routes/tuotteet');
+var toteumaRouter = require('./routes/toteuma');
+var tyovuorotRouter = require('./routes/tyovuorot');
+var hairiotRouter = require('./routes/hairiot');
 
 var app = express();
 
@@ -22,7 +25,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/tuotteet', tuotteetRouter);
+app.use('/api/toteuma', toteumaRouter);
+app.use('/api/tyovuorot', tyovuorotRouter);
+app.use('/api/hairiot', hairiotRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
