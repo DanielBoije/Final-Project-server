@@ -1,6 +1,6 @@
--.env:n täytyy käydä lisäämässä passu ja käyttäjä
+-tot_haiPG:n tarkastus ja muokkaus/poisto/uudelleenteko 
 
--databasen ja host:n (aws) nimen lisäys postgreSQL tiedostoihin
+-Alter table teko miten?
 
 -toteumaan pitää tehä JOINIT + pitää viel viilata
 
