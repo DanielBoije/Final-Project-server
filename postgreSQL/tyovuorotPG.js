@@ -7,8 +7,8 @@ require('dotenv').config();
 const conopts = {
     user: USER,
     password: PASSWORD,
-    host: '',
-    database: ''
+    host: 'aldati-projektikanta.ccxgt0pdrbak.eu-west-1.rds.amazonaws.com',
+    database: 'seurantadb'
 }
 
 const pool=new Pool(conopts)  
