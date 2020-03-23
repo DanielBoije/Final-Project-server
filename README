@@ -1,6 +1,4 @@
--tot_haiPG:n tarkastus ja muokkaus/poisto/uudelleenteko 
-
--Alter table teko miten?
+-toteumat ja tot_hai (myös PG) täytyy kattoa vielä läpi
 
 -toteumaan pitää tehä JOINIT + pitää viel viilata
 
