@@ -14,7 +14,7 @@ const conopts = {
 const pool=new Pool(conopts)  
 
 const haetot_hait = (t) => {
-    pool.query('SELECT * from tot_hai ORDER BY tot_id && hair_id', (err, results) => {
+    pool.query('SELECT * from tot_hai', (err, results) => {
         if (err) throw err;
         console.dir(results);
         t(results.rows);
