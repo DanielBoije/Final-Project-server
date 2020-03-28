@@ -28,9 +28,9 @@ const haetoteuma = (id, t) => {
     })
 }
 const luototeuma = (uusitoteuma, t) => {
-    const { pvm, vuoro_id, tyovuorot, tuotenro, tuotteet, tehtytunnit, tehdytkappaleet, viesti } = uusitoteuma;
-    pool.query('INSERT INTO toteumat (pvm, vuoro_id, tyovuorot, tuotenro, tuotteet, tehtytunnit, tehdytkappaleet, viesti ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)',
-    [pvm, vuoro_id, tyovuorot, tuotenro, tuotteet, tehtytunnit, tehdytkappaleet, viesti ], (err, results) => {
+    const { pvm, vuoro_id, tuotenro, tehtytunnit, tehdytkappaleet, viesti, linja_id } = uusitoteuma;
+    pool.query('INSERT INTO toteumat (pvm, vuoro_id, tuotenro, tehtytunnit, tehdytkappaleet, viesti, linja_id ) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+    [pvm, vuoro_id, tuotenro, tehtytunnit, tehdytkappaleet, viesti, linja_id], (err, results) => {
         if (err) throw err;
         console.dir(results);
         t(results.rowCount);
@@ -38,8 +38,9 @@ const luototeuma = (uusitoteuma, t) => {
 }
 
 const paivitatoteuma = (toteuma, id, t) => {
-    const { pvm, vuoro_id, tyovuorot, tuotenro, tuotteet, tehtytunnit, tehdytkappaleet, viesti } = toteuma;
-    pool.query('UPDATE toteumat SET pvm=$1, vuoro_id=$2, tyovuorot=$3, tuotenro=$4, tuotteet=$5, tehtytunnit=$6, tehdytkappaleet=$7, viesti=$8, WHERE id=$9', [pvm, vuoro_id, tyovuorot, tuotenro, tuotteet, tehtytunnit, tehdytkappaleet, viesti, id], (err, results) => {
+    const { pvm, vuoro_id, tuotenro, tehtytunnit, tehdytkappaleet, viesti, linja_id  } = toteuma;
+    pool.query('UPDATE toteumat SET pvm=$1, vuoro_id=$2, tuotenro=$3, tehtytunnit=$4, tehdytkappaleet=$5, viesti=$6, linja_id=$7 WHERE id=$8', 
+    [pvm, vuoro_id, tuotenro, tehtytunnit, tehdytkappaleet, viesti, linja_id, id], (err, results) => {
         if (err) throw err;
         console.dir(results);
         t(results.rowCount);

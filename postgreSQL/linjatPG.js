@@ -27,6 +27,7 @@ const haelinja = (id, l) => {
         l(results.rows);
     })
 }
+
 const luolinja = (uusilinja, l) => {
     const { nimi } = uusilinja;
     pool.query('INSERT INTO linjat (nimi) VALUES ($1)', [nimi], (err, results) => {
