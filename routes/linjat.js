@@ -12,8 +12,6 @@ router.get('/:id', function (req, res, next) {
         res.json(rows);
     })
 })
-
-
 router.post('/', function (req, res, next) {
     linjatPG.luolinja(req.body, (rowCount) => {
         if (rowCount > 0)
