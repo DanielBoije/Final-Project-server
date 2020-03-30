@@ -5,13 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 
-var indexRouter = require('./routes/index');
+
 var tuotteetRouter = require('./routes/tuotteet');
 var toteumatRouter = require('./routes/toteumat');
 var tyovuorotRouter = require('./routes/tyovuorot');
 var hairiotRouter = require('./routes/hairiot');
 var linjatRouter = require('./routes/linjat');
 var tot_haiRouter = require('./routes/tot_hai');
+var listaRouter = require('./routes/lista');
 
 var app = express();
 
@@ -26,13 +27,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
 app.use('/api/tuotteet', tuotteetRouter);
 app.use('/api/toteumat', toteumatRouter);
 app.use('/api/tyovuorot', tyovuorotRouter);
 app.use('/api/hairiot', hairiotRouter);
 app.use('/api/linjat', linjatRouter);
-app.use('/api/tot_hai', tot_haiRouter)
+app.use('/api/tot_hai', tot_haiRouter);
+app.use('/api/lista', listaRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
