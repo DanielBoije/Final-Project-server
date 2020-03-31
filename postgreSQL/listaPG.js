@@ -14,7 +14,7 @@ const conopts = {
 const pool=new Pool(conopts)  
 
 const haelista = (l) => {
-    pool.query('Select distinct T.id, T.pvm, L.nimi, TV.tyovuoro, TU.tuotenimi from toteumat T join linjat L on T.linja_id=L.id join tyovuorot TV on T.vuoro_id=TV.id join tuotteet TU on T.tuotenro=TU.tuotenro order by T.id desc limit 5;', (err, results) => {
+    pool.query('Select distinct T.id, T.pvm, L.nimi, TV.tyovuoro, TU.tuotenimi from toteumat T join linjat L on T.linja_id=L.id join tyovuorot TV on T.vuoro_id=TV.id join tuotteet TU on T.tuotenro=TU.tuotenro order by T.id desc limit 10;', (err, results) => {
         if (err) throw err;
         console.dir(results);
         l(results.rows);
