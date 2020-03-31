@@ -13,6 +13,7 @@ var hairiotRouter = require('./routes/hairiot');
 var linjatRouter = require('./routes/linjat');
 var tot_haiRouter = require('./routes/tot_hai');
 var piirakkaRouter = require('./routes/piirakka');
+var listaRouter = require('./routes/lista');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use('/api/hairiot', hairiotRouter);
 app.use('/api/linjat', linjatRouter);
 app.use('/api/tot_hai', tot_haiRouter);
 app.use('/api/piirakka', piirakkaRouter);
+app.use('/api/lista', listaRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
