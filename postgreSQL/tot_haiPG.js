@@ -28,8 +28,8 @@ const haetot_hai = (tot_id, hair_id, t) => {
     })
 }
 const luotot_hai = (uusitot_hai, t) => {
-    const { toteumat, hairiot, hairiokesto } = uusitot_hai;
-    pool.query('INSERT INTO tot_hai (toteumat, hairiot, hairiokesto) VALUES ($1, $2, $3)', [toteumat, hairiot, hairiokesto], (err, results) => {
+    const { tot_id, hair_id, hairiokesto } = uusitot_hai;
+    pool.query('INSERT INTO tot_hai (tot_id, hair_id, hairiokesto) VALUES ($1, $2, $3)', [tot_id, hair_id, hairiokesto], (err, results) => {
         if (err) throw err;
         console.dir(results);
         t(results.rowCount);
