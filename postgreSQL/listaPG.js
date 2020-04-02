@@ -15,6 +15,7 @@ const pool=new Pool(conopts)
 
 const haelista = (l) => {
     pool.query('select distinct T.id, T.pvm, L.nimi, TV.tyovuoro, TU.tuotenimi, T.tehtytunnit, T.tehdytkappaleet, sum(TH.hairiokesto) as hairiokesto from toteumat T join linjat L on T.linja_id=L.id join tyovuorot TV on T.vuoro_id=TV.id join tuotteet TU on T.tuotenro=TU.tuotenro left join tot_hai TH on T.id=TH.tot_id group by T.id, L.nimi, TV.tyovuoro, TU.tuotenimi order by T.id desc limit 15;', (err, results) => {
+
         if (err) throw err;
         console.dir(results);
         l(results.rows);
@@ -23,6 +24,17 @@ const haelista = (l) => {
 
 
 module.exports = {haelista}
+
+
+
+
+
+
+
+
+
+
+
 
 //pvä, vuoro, linja, tuote
 
