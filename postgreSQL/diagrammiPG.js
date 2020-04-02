@@ -20,7 +20,10 @@ function haeDiagrammi(hakuehdot, cb) {
         `SELECT DISTINCT T.vuoro_id, V.tyovuoro, T.tuotenro,
         TRUNC((COALESCE(SUM(T.tehdytkappaleet),1) / COALESCE(SUM(T.tehtytunnit),1) / TU.tuntitavoite * 100), 2) AS hairiotmukanapros,
         TRUNC((COALESCE(SUM(T.tehdytkappaleet), 1) 
-        / (COALESCE(SUM( T.tehtytunnit), 1) - COALESCE(SUM(TH.hairiokesto), 0)) 
+        / CASE WHEN(COALESCE(SUM( T.tehtytunnit), 1) - COALESCE(SUM(TH.hairiokesto), 0)) = 0
+               THEN 1 
+               ELSE (COALESCE(SUM( T.tehtytunnit), 1) - COALESCE(SUM(TH.hairiokesto), 0)) 
+               END
         / TU.tuntitavoite * 100), 2) AS ilmanhairioitapros
         FROM toteumat T
         JOIN tuotteet TU ON T.tuotenro=TU.tuotenro
