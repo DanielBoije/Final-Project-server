@@ -5,7 +5,7 @@ require('dotenv').config();
 const conopts = {
     user: USER,
     password: PASSWORD,
-    host: 'aldati-projektikanta.ccxgt0pdrbak.eu-west-1.rds.amazonaws.com',
+    host: 'localhost',
     database: 'seurantadb'
 }
 
@@ -15,7 +15,7 @@ const pool=new Pool(conopts)
 function haeDiagrammi(hakuehdot, cb) {
     console.log('haeDaigrammi')
     const { linja, alkupvm, loppupvm } = hakuehdot;
-    //haetaan kaikki aikavälin häiriötunnit yhteensä
+    //toteuma / tunnit / tavoite * 100 = toteuman suhde tavoitteeseen nähden
     return pool.query(
         `SELECT DISTINCT T.vuoro_id, V.tyovuoro, T.tuotenro,
         TRUNC((COALESCE(SUM(T.tehdytkappaleet),1) / COALESCE(SUM(T.tehtytunnit),1) / TU.tuntitavoite * 100), 2) AS hairiotmukanapros,
