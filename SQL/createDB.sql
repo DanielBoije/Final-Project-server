@@ -30,7 +30,7 @@ id SERIAL NOT NULL,
 pvm DATE NOT NULL DEFAULT CURRENT_DATE,
 vuoro_id INTEGER NOT NULL REFERENCES tyovuorot (id),
 tuotenro INTEGER NOT NULL REFERENCES tuotteet (tuotenro),
-linja_id INTEGER NOT NULL REFERENCES linjat (id)
+linja_id INTEGER NOT NULL REFERENCES linjat (id),
 tehtytunnit DECIMAL,
 tehdytkappaleet INTEGER,
 viesti VARCHAR(255),
